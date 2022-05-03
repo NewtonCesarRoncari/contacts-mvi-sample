@@ -1,8 +1,8 @@
-package com.picpay.desafio.android
+package com.picpay.desafio.android.data.service
 
+import com.picpay.desafio.android.User
 import retrofit2.Call
 import retrofit2.http.GET
-
 
 interface PicPayService {
 

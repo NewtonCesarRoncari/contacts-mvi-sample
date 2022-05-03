@@ -12,6 +12,7 @@ buildscript {
         moshi_version = '1.8.0'
         retrofit_version = '2.7.1'
         okhttp_version = '4.3.1'
+        okhttp_interceptor = '4.9.1'
         picasso_version = '2.71828'
         circleimageview_version = '3.0.0'
 
