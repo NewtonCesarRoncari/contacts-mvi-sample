@@ -15,6 +15,7 @@ buildscript {
         okhttp_interceptor = '4.9.1'
         picasso_version = '2.71828'
         circleimageview_version = '3.0.0'
+        navigation = '2.3.5'
 
         junit_version = '4.12'
         mockito_version = '2.27.0'
