@@ -3,8 +3,7 @@ package com.picpay.desafio.android.presentation.ui.fragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
+import android.view.View.*
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -12,7 +11,6 @@ import com.picpay.desafio.android.R
 import com.picpay.desafio.android.presentation.ui.fragment.recyclerview.adapter.UserListAdapter
 import com.picpay.desafio.android.databinding.FragmentListContactsBinding
 import com.picpay.desafio.android.presentation.viewmodel.ListContactsViewModel
-import org.koin.android.ext.android.bind
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ListContactsFragment : Fragment() {
@@ -30,6 +28,7 @@ class ListContactsFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.networkErrorAnimation.setAnimation("anim/network_error.json")
         listeners()
 
         binding.recyclerView.adapter = adapter
@@ -40,27 +39,41 @@ class ListContactsFragment : Fragment() {
         viewModel.getContacts()
 
         viewModel.contacts.observe(viewLifecycleOwner, { users ->
+            disableAnimation()
             disableProgressBar()
 
             adapter.users = users
         })
 
-        viewModel.onRequisitionError.observe(viewLifecycleOwner, {
+        viewModel.onRequisitionError.observe(viewLifecycleOwner, { messageError ->
             disableProgressBar()
             disableVRecyclerView()
-            showMessageError()
+            initNetworkAnimationError(messageError)
         })
+    }
+
+    private fun initNetworkAnimationError(messageError: String?) {
+        with(binding.networkErrorAnimation) {
+            scaleX = 0.5f
+            scaleY = 0.5f
+            visibility = VISIBLE
+            playAnimation()
+        }
+        binding.networkErrorAnimation.visibility = VISIBLE
+        binding.networkErrorMessage.visibility = VISIBLE
+        binding.networkErrorMessage.text = messageError
     }
 
     private fun disableProgressBar() {
         binding.userListProgressBar.visibility = GONE
     }
 
-    private fun disableVRecyclerView() {
-        binding.recyclerView.visibility = GONE
+    private fun disableAnimation() {
+        binding.networkErrorMessage.visibility = INVISIBLE
+        binding.networkErrorAnimation.visibility = INVISIBLE
     }
 
-    private fun showMessageError() {
-        Toast.makeText(requireContext(), getString(R.string.error), Toast.LENGTH_SHORT).show()
+    private fun disableVRecyclerView() {
+        binding.recyclerView.visibility = GONE
     }
 }

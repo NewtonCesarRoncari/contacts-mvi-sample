@@ -3,15 +3,15 @@ package com.picpay.desafio.android.data.retrofit
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.picpay.desafio.android.data.retrofit.RetrofitConst.BASE_URL
+import com.picpay.desafio.android.data.retrofit.RetrofitConst.CACHE_SIZE
+import com.picpay.desafio.android.data.retrofit.RetrofitConst.TIMEOUT
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
-
-private const val BASE_URL = "https://609a908e0f5a13001721b74e.mockapi.io/picpay/api/"
-private const val CACHE_SIZE = 5 * 1024 * 1024L // 5 MB de cache
 
 class RetrofitClient(
     private val application: Context
@@ -20,7 +20,6 @@ class RetrofitClient(
     private val gson: Gson by lazy { GsonBuilder().create() }
 
     private val okHttp: OkHttpClient by lazy {
-        val timeOut: Long = 60
         val interceptor = HttpLoggingInterceptor()
 
         interceptor.level = HttpLoggingInterceptor.Level.BODY
@@ -28,13 +27,13 @@ class RetrofitClient(
             .cache(cacheSize())
             .addNetworkInterceptor(CacheInterceptor)
             .addInterceptor(interceptor)
-            .connectTimeout(timeOut, TimeUnit.SECONDS)
-            .writeTimeout(timeOut, TimeUnit.SECONDS)
-            .readTimeout(timeOut, TimeUnit.SECONDS)
+            .connectTimeout(TIMEOUT, TimeUnit.SECONDS)
+            .writeTimeout(TIMEOUT, TimeUnit.SECONDS)
+            .readTimeout(TIMEOUT, TimeUnit.SECONDS)
             .build()
     }
 
-    fun newInstance() = with(Retrofit.Builder()) {
+    fun newInstance(): Retrofit = with(Retrofit.Builder()) {
         baseUrl(BASE_URL)
         client(okHttp)
         addConverterFactory(GsonConverterFactory.create(gson))
