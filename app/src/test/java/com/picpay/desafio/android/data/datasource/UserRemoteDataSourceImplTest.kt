@@ -8,10 +8,9 @@ import com.picpay.desafio.android.data.service.PicPayService
 import com.picpay.desafio.android.domain.model.UserDomain
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
-import org.junit.Assert.*
-
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Test
-import org.mockito.Mockito.mock
 
 @ExperimentalCoroutinesApi
 class UserRemoteDataSourceImplTest {
