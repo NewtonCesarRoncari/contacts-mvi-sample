@@ -10,7 +10,8 @@ import com.picpay.desafio.android.RecyclerViewMatchers
 import com.picpay.desafio.android.data.retrofit.ErrorMessagesConst.NULL_VALUE_ERROR
 import com.picpay.desafio.android.utils.FileReader.readStringFromFile
 import com.picpay.desafio.android.utils.launchFragment
-import com.picpay.desafio.android.utils.waitFor
+import com.picpay.desafio.android.utils.onView
+import com.picpay.desafio.android.utils.verify
 import okhttp3.mockwebserver.Dispatcher
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
@@ -18,8 +19,6 @@ import okhttp3.mockwebserver.RecordedRequest
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
-
-private const val MILLIS : Long = 4000
 
 class ListContactsFragmentTest {
 
@@ -40,7 +39,7 @@ class ListContactsFragmentTest {
 
         val expectedTitle = context.getString(R.string.title)
 
-        onView(withText(expectedTitle)).check(matches(isDisplayed()))
+        withText(expectedTitle).onView { verify(isDisplayed()) }
     }
 
     @Test
@@ -48,7 +47,6 @@ class ListContactsFragmentTest {
         server.dispatcher = getDispatcher(successResponse)
 
         launchFragment<ListContactsFragment>().apply {
-            waitFor(MILLIS)
             RecyclerViewMatchers.checkRecyclerViewItem(
                 R.id.recyclerView,
                 3,
@@ -72,9 +70,8 @@ class ListContactsFragmentTest {
         server.dispatcher = getDispatcher(errorUserWithNullId)
 
         launchFragment<ListContactsFragment>().apply {
-            waitFor(MILLIS)
-            onView(withId(R.id.network_error_animation)).check(matches(isDisplayed()))
-            onView(withText(NULL_VALUE_ERROR)).check(matches(isDisplayed()))
+            withId(R.id.network_error_animation).onView { verify(isDisplayed()) }
+            withText(NULL_VALUE_ERROR).onView { verify(isDisplayed()) }
         }
     }
 
@@ -83,9 +80,8 @@ class ListContactsFragmentTest {
         server.dispatcher = getDispatcher(errorUserWithNullName)
 
         launchFragment<ListContactsFragment>().apply {
-            waitFor(MILLIS)
-            onView(withId(R.id.network_error_animation)).check(matches(isDisplayed()))
-            onView(withText(NULL_VALUE_ERROR)).check(matches(isDisplayed()))
+            withId(R.id.network_error_animation).onView { verify(isDisplayed()) }
+            withText(NULL_VALUE_ERROR).onView { verify(isDisplayed()) }
         }
     }
 
@@ -94,9 +90,8 @@ class ListContactsFragmentTest {
         server.dispatcher = getDispatcher(errorUserWithNullUsername)
 
         launchFragment<ListContactsFragment>().apply {
-            waitFor(MILLIS)
-            onView(withId(R.id.network_error_animation)).check(matches(isDisplayed()))
-            onView(withText(NULL_VALUE_ERROR)).check(matches(isDisplayed()))
+            withId(R.id.network_error_animation).onView { verify(isDisplayed()) }
+            withText(NULL_VALUE_ERROR).onView { verify(isDisplayed()) }
         }
     }
 
