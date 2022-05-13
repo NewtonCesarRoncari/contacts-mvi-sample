@@ -27,9 +27,7 @@ class ListContactsFragmentTest {
     private val context = InstrumentationRegistry.getInstrumentation().targetContext
 
     @Before
-    fun createServer() {
-        server.start(serverPort)
-    }
+    fun createServer() = server.start(serverPort)
 
     @After
     fun stopServer() = server.shutdown()
