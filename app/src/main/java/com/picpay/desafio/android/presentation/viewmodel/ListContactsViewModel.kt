@@ -19,7 +19,7 @@ import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 
 class ListContactsViewModel(
-    private val useCase: GetUsersUseCase
+    private val getUsers: GetUsersUseCase
 ) : ViewModel() {
 
     private val _onRequisitionError = MutableLiveData<String?>()
@@ -32,7 +32,7 @@ class ListContactsViewModel(
         viewModelScope.launch(Dispatchers.IO) {
 
             kotlin.runCatching {
-                useCase()
+                getUsers()
             }.onSuccess { contacts ->
                 _contacts.postValue(contacts)
             }.onFailure { error ->

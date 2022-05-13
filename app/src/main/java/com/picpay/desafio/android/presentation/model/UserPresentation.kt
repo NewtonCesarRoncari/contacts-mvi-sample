@@ -1,6 +1,6 @@
 package com.picpay.desafio.android.presentation.model
 
-class UserPresentation(
+data class UserPresentation(
     val img: String? = null,
     val name: String = "",
     val id: Int = 0,

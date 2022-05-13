@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PicPay</string>
+    <string name="app_name">ContactPay</string>
     <string name="title">Contatos</string>
     <string name="error">Ocorreu um erro. Tente novamente.</string>
 

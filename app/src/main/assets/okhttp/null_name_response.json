@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1001,
+    "name": "Eduardo Santos",
+    "img": "https://randomuser.me/api/portraits/men/9.jpg",
+    "username": "@eduardo.santos"
+  },
+  {
+    "id": 1101,
+    "name": "Romulo Fernandez",
+    "img": "https://randomuser.me/api/portraits/men/75.jpg",
+    "username": "@romulo.fernandez"
+  },
+  {
+    "id": 1111,
+    "name": "Walter White",
+    "img": "https://randomuser.me/api/portraits/men/87.jpg",
+    "username": "@walter.white"
+  },
+  {
+    "id": 1010,
+    "name": "Billy Bucket",
+    "img": "https://randomuser.me/api/portraits/men/6.jpg",
+    "username": "@billy.bucket"
+  },
+  {
+    "id": 1000,
+    "name": null,
+    "img": "https://randomuser.me/api/portraits/men/14.jpg",
+    "username": "@caio.gomez"
+  },
+  {
+    "id": 1110,
+    "name": "Johnny Blaze",
+    "img": "https://randomuser.me/api/portraits/men/42.jpg",
+    "username": "@johnny.blaze"
+  }
+]

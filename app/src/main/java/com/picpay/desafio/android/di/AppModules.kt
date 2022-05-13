@@ -29,5 +29,5 @@ val networkModules = module {
 }
 
 val presentationModules = module {
-    viewModel { ListContactsViewModel(useCase = get()) }
+    viewModel { ListContactsViewModel(getUsers = get()) }
 }

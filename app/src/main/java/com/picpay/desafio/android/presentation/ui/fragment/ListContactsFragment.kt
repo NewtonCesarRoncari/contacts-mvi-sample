@@ -5,11 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.*
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.picpay.desafio.android.R
-import com.picpay.desafio.android.presentation.ui.fragment.recyclerview.adapter.UserListAdapter
 import com.picpay.desafio.android.databinding.FragmentListContactsBinding
+import com.picpay.desafio.android.presentation.ui.fragment.recyclerview.adapter.UserListAdapter
 import com.picpay.desafio.android.presentation.viewmodel.ListContactsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

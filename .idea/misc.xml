@@ -8,10 +8,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/background_app_splash_screen.xml" value="0.11481481481481481" />
+        <entry key="app/src/main/res/drawable/contact_pay_logo_background.xml" value="0.11481481481481481" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.3824074074074074" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/fragment_list_contacts.xml" value="0.13924050632911392" />
         <entry key="app/src/main/res/layout/frame_navigation.xml" value="0.1828774062816616" />
         <entry key="app/src/main/res/layout/list_item_user.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/contact_pay_logo.xml" value="0.228125" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/contact_pay_logo_round.xml" value="0.11481481481481481" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.11481481481481481" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.11481481481481481" />
       </map>
     </option>
   </component>

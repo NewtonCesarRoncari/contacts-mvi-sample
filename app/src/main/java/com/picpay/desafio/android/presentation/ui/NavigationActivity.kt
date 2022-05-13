@@ -1,7 +1,6 @@
 package com.picpay.desafio.android.presentation.ui
 
 import android.os.Bundle
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import com.picpay.desafio.android.R
@@ -13,6 +12,7 @@ class NavigationActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.frame_navigation)
 

@@ -11,8 +11,8 @@ class GetUsersUseCase(
     private val mapper = UserToPresentationMapper()
 
     suspend operator fun invoke(): List<UserPresentation> {
-       return repository.getUsers().map { userDomain ->
-           mapper.map(userDomain)
-       }
+        return repository.getUsers().map { userDomain ->
+            mapper.map(userDomain)
+        }
     }
 }
