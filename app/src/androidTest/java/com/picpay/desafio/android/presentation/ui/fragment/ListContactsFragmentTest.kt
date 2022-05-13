@@ -1,8 +1,5 @@
 package com.picpay.desafio.android.presentation.ui.fragment
 
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.platform.app.InstrumentationRegistry
 import com.picpay.desafio.android.R

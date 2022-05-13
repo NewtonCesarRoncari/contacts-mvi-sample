@@ -11,6 +11,7 @@ import com.picpay.desafio.android.data.retrofit.ErrorMessagesConst.TIMEOUT_ERROR
 import com.picpay.desafio.android.data.retrofit.ErrorMessagesConst.UNEXPECTED_ERROR
 import com.picpay.desafio.android.domain.usecase.GetUsersUseCase
 import com.picpay.desafio.android.presentation.model.UserPresentation
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
@@ -19,7 +20,8 @@ import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 
 class ListContactsViewModel(
-    private val getUsers: GetUsersUseCase
+    private val getUsers: GetUsersUseCase,
+    private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : ViewModel() {
 
     private val _onRequisitionError = MutableLiveData<String?>()
@@ -29,7 +31,7 @@ class ListContactsViewModel(
     val contacts: LiveData<List<UserPresentation>> get() = _contacts
 
     fun getContacts() {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(dispatcher) {
 
             kotlin.runCatching {
                 getUsers()
