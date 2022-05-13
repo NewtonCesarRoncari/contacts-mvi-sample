@@ -47,10 +47,12 @@ class ListContactsFragmentTest {
         server.dispatcher = getDispatcher(successResponse)
 
         launchFragment<ListContactsFragment>().apply {
+            withId(R.id.recyclerView).onView { verify(isDisplayed()) }
+
             RecyclerViewMatchers.checkRecyclerViewItem(
                 R.id.recyclerView,
-                3,
-                withText("Billy Bucket")
+                2,
+                withText("Walter White")
             )
             RecyclerViewMatchers.checkRecyclerViewItem(
                 R.id.recyclerView,
